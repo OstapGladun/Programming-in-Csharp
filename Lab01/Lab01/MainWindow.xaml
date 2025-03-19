@@ -13,6 +13,5 @@
         <TextBlock Text="{Binding AgeText}" FontSize="20" Margin="0,250,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" Width="300" Height="60"/>
         <TextBlock Text="{Binding WesternZodiac}" FontSize="15" Margin="0,310,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Foreground="Blue" Width="300" Height="30"/>
         <TextBlock Text="{Binding ChineseZodiac}" FontSize="15" Margin="0,345,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Foreground="DarkRed" Width="300" Height="30"/>
-        <TextBlock Text="{Binding BirthDateList}" FontSize="20" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold" Width="150" Height="175"/>
     </Grid>
 </Window>
