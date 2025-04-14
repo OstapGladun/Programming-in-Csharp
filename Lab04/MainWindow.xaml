@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab04"
         mc:Ignorable="d"
-        Title="Main window" Height="450" Width="800">
-    <Grid Margin="10">
+        Title="Main window" Height="600" Width="900">
+    <Grid Margin="5">
         
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
-        <DataGrid Grid.Row="0" ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+        <DataGrid Grid.Column="0" ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding FirstName}" />
                 <DataGridTextColumn Header="Surname" Binding="{Binding LastName}" />
@@ -26,7 +26,20 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left">
+            <TextBlock Width="100" Margin="5" Text="Filters:" FontSize="15"/>
+            <TextBox Width="100" Margin="5" Text="{Binding NameFilter}" />
+            <TextBox Width="100" Margin="5" Text="{Binding SurnameFilter}" />
+            <TextBox Width="100" Margin="5" Text="{Binding EmailFilter}" />
+            <DatePicker SelectedDate="{Binding DateFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" HorizontalAlignment="Center"/>
+            <CheckBox Content="Is adult" Margin="5" IsChecked="{Binding IsAdultFilter}" />
+            <TextBox Width="100" Margin="5" Text="{Binding SunSignFilter}" />
+            <TextBox Width="100" Margin="5" Text="{Binding ChineseSignFilter}" />
+            <CheckBox Content="Is birthday" Margin="5" IsChecked="{Binding IsBirthdayFilter}" />
+            <Button Content="Apply" Width="100" Margin="5" Command="{Binding FilterCommand}" />
+            <Button Content="Reset" Width="100" Margin="5" Command="{Binding ResetCommand}" />
+
+            <TextBlock Width="100" Margin="5" Text="Operations:" FontSize="15" />
             <Button Content="Add" Width="100" Margin="5" Command="{Binding AddCommand}" />
             <Button Content="Edit" Width="100" Margin="5" Command="{Binding EditCommand}" />
             <Button Content="Delete" Width="100" Margin="5" Command="{Binding DeleteCommand}" />

@@ -17,7 +17,6 @@ namespace Lab04
         private DateTime _birthDate = DateTime.Now;
 
         private bool _isCalculating = false;
-        private List<Person> people = new List<Person>();
 
         public event EventHandler<Person> CloseRequested;
 
@@ -95,8 +94,6 @@ namespace Lab04
                 CheckIsProceedPossible();
                 Person newPerson = await Task.Run(() => new Person(FirstName, LastName, Email, BirthDate));
 
-                people.Add(newPerson);
-
                 if (newPerson.IsBirthday)
                     MessageBox.Show("Happy birthday!", "Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -130,7 +127,5 @@ namespace Lab04
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
     }
 }
